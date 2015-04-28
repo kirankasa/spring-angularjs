@@ -1,0 +1,43 @@
+<div>
+    <form class="form-horizontal" ng-submit="addEmployee(employee)">
+        <div class="control-group">
+            <label class="control-label" for="firstName">First Name</label>
+            <div class="controls">
+                <input type="text" id="firstName" ng-model="employee.firstName" placeholder="First Name" required>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="lastName">Last Name</label>
+            <div class="controls">
+                <input type="text" id="lastName" ng-model="employee.lastName" placeholder="Last Name" required>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <button class="btn btn-primary" type="submit" >Save</button>
+            </div>
+        </div>
+    </form>
+    <h3>Employee List</h3>
+    <div class="alert alert-info" ng-show="employees.length == 0">
+        No employee found
+    </div>
+    <table class="table table-bordered table-striped"  ng-show="employees.length > 0">
+        <thead>
+        <tr>
+            <th style="text-align: center;">First Name</th>
+            <th style="text-align: center;">Last Name</th>
+            <th style="text-align: center;">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="employee in employees">
+            <td  style="text-align: center"> <span>{{employee.firstName}}</span></td>
+            <td  style="text-align: center"> <span>{{employee.lastName}}</span></td>
+            <td  style="text-align: center"><button class="btn btn-danger" ng-click="removeEmployee(employee)">Delete</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
